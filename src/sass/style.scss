@@ -1,1 +1,17 @@
-// @use "./reset";
+@use "./reset";
+
+$BG_MAIN: #111;
+$COLOR_MAIN: #ccc;
+
+body {
+  background-color: $BG_MAIN;
+  color: $COLOR_MAIN;
+  margin: 0.8rem;
+}
+
+.game_frame {
+  background-color: #222;
+  color: $COLOR_MAIN;
+  padding: 0.8rem;
+  border-style: solid 1px #ccc;
+}
