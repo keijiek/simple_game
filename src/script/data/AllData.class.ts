@@ -1,12 +1,15 @@
-import { GameTime } from "./GameTime.class";
+import { GameDateTime } from "./GameDateTime.class";
 import { Hero } from "./Hero.class";
+import { Messages } from "./Messages.class";
 
 export class AllData {
-  hero:Hero;
-  time:GameTime;
+  hero: Hero;
+  dateTime: GameDateTime;
+  messages: Messages;
 
   constructor() {
     this.hero = new Hero();
-    this.time = new GameTime(700);
+    this.dateTime = new GameDateTime();
+    this.messages = new Messages();
   }
 }

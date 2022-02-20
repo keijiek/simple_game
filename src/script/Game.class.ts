@@ -1,7 +1,5 @@
-import { Hero } from './data/Hero.class';
-import { TownScene } from './scenes/TownScene';
-import { GameTime } from './data/GameTime.class';
 import { AllData } from './data/AllData.class';
+import { TownScene } from './scenes/TownScene';
 
 export class Game {
   private _gameFrame: HTMLDivElement;

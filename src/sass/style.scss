@@ -1,7 +1,7 @@
 @use "./reset";
 
-$BG_MAIN: #121;
-$BG_BODY: #010;
+$BG_MAIN: #060606;
+$BG_BODY: #0c0c0c;
 $COLOR_MAIN: #ccc;
 
 // mixins
@@ -23,26 +23,41 @@ $COLOR_MAIN: #ccc;
 // elements, classes
 body {
   @include colorset_body();
-  background-color: $BG_BODY;
-  color: $COLOR_MAIN;
   margin: 0.6rem;
-}
-
-.game_title_string {
-  @include default_box();
-  font-size: 1rem;
-  text-align: center;
-  font-style: italic;
 }
 
 .game_frame {
   @include colorset_game();
-  @include default_box();
+  margin: auto;
+  margin-top: 2rem;
+  width: 800px;
   height: 640px;
 }
 
-.date_time {
-  @include colorset_game();
-  padding: 0.4rem;
+.upper_container {
+  display: flex;
+  margin: auto;
   width: 780px;
+}
+.middle_container {
+  display: flex;
+}
+.lower_container {
+  display: flex;
+}
+
+.date_time_box {
+  border: solid 1px #ccc;
+}
+.right_info {
+  border: solid 1px #ccc;
+}
+.middle_info {
+  border: solid 1px #ccc;
+}
+.left_info {
+  border: solid 1px #ccc;
+}
+.message_box {
+  border: solid 1px #ccc;
 }
