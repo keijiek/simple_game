@@ -1,4 +1,4 @@
-import './Hero.class';
+import './data/Hero.class';
 
 export class Outputter {
 

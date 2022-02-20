@@ -1,17 +1,48 @@
 @use "./reset";
 
-$BG_MAIN: #111;
+$BG_MAIN: #121;
+$BG_BODY: #010;
 $COLOR_MAIN: #ccc;
 
-body {
+// mixins
+@mixin colorset_body {
+  background-color: $BG_BODY;
+  color: $COLOR_MAIN;
+}
+
+@mixin colorset_game {
   background-color: $BG_MAIN;
   color: $COLOR_MAIN;
-  margin: 0.8rem;
+}
+
+@mixin default_box {
+  padding: 0.6rem;
+  width: 800px;
+}
+
+// elements, classes
+body {
+  @include colorset_body();
+  background-color: $BG_BODY;
+  color: $COLOR_MAIN;
+  margin: 0.6rem;
+}
+
+.game_title_string {
+  @include default_box();
+  font-size: 1rem;
+  text-align: center;
+  font-style: italic;
 }
 
 .game_frame {
-  background-color: #222;
-  color: $COLOR_MAIN;
-  padding: 0.8rem;
-  border-style: solid 1px #ccc;
+  @include colorset_game();
+  @include default_box();
+  height: 640px;
+}
+
+.date_time {
+  @include colorset_game();
+  padding: 0.4rem;
+  width: 780px;
 }
