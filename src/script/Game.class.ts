@@ -1,16 +1,15 @@
 import { AllData } from './data/AllData.class';
 import { TownScene } from './scenes/TownScene';
+import { OutputManager } from './htmlParts/OutputManager.class';
 
 export class Game {
-  private _gameFrame: HTMLDivElement;
   private _allData:AllData;
+  private _outputManager: OutputManager;
 
-  constructor(appendedElement: HTMLElement) {
-    this._gameFrame = this.createGameFrame();
+  constructor(parentalElement: HTMLElement) {
     this._allData = new AllData();
-
-    appendedElement.appendChild(this._gameFrame);
-    this.startGame();
+    this._outputManager = new OutputManager(this._allData);
+    parentalElement.appendChild(this._outputManager.div);
   }
 
   private createGameFrame():HTMLDivElement {
@@ -19,7 +18,5 @@ export class Game {
     return gameFrame;
   }
 
-  private startGame():void {
-    this._gameFrame.appendChild((new TownScene(this._allData)).frame);
-  }
+
 }

@@ -2,7 +2,7 @@ import { AllData } from "../data/AllData.class";
 import { GameDateTime } from "../data/GameDateTime.class";
 import { BoxBase } from "./BoxBase.class";
 
-export class DateInfoBox extends BoxBase {
+export class SubInfoBox extends BoxBase {
   private _date:GameDateTime;
 
   constructor(allData:AllData, classValue:string) {
@@ -10,8 +10,7 @@ export class DateInfoBox extends BoxBase {
     this._date = allData.dateTime;
   }
 
-  public update():void {
-    this.div.textContent = this._date.fullInfo();
-  }
+  update():void {
 
+  }
 }

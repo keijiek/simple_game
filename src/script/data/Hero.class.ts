@@ -1,5 +1,8 @@
+import { NameDataPair } from "./Interfaces";
+
 export class Hero {
   private _name: string = 'あなた';
+  // private _age:nameDataPair = {dataName:'年齢', dataValue:10};
   private _age: number = 0;
   private _combat: number = 0;
   private _money: number = 0;

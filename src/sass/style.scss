@@ -26,38 +26,76 @@ body {
   margin: 0.6rem;
 }
 
-.game_frame {
+.comprehensive_container {
   @include colorset_game();
+  display: flex;
+  flex-flow: column;
+  justify-content: baseline;
   margin: auto;
   margin-top: 2rem;
-  width: 800px;
-  height: 640px;
+  padding: 0.4rem;
+  width:  640px;
+  height: 480px;
+}
+
+@mixin sub_container_common {
+  display: flex;
+  
 }
 
 .upper_container {
   display: flex;
   margin: auto;
-  width: 780px;
+  height: 6%;
 }
 .middle_container {
   display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 69%;
+  // height: 280px;
+  // width: 100%;
 }
 .lower_container {
   display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 25%;
+  // height: 140px;
+  // width: 100%;
 }
 
-.date_time_box {
-  border: solid 1px #ccc;
+.date_info_box {
+  padding: 0.2rem;
+  width: 100%;
 }
-.right_info {
-  border: solid 1px #ccc;
+
+@mixin middle_box_common {
+  // border: solid 1px #ccc;
+  margin: auto;
+  padding: 0.4rem;
 }
-.middle_info {
-  border: solid 1px #ccc;
+
+.hero_info_box {
+  @include middle_box_common();
+  width: 25%;
 }
-.left_info {
-  border: solid 1px #ccc;
+
+.image_box {
+  @include middle_box_common();
+  width: 45%;
 }
+
+.sub_info_box {
+  @include middle_box_common();
+  width: 25%;
+}
+
 .message_box {
   border: solid 1px #ccc;
+  overflow-y: scroll;
+  overflow-wrap: break-word;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: normal;
 }

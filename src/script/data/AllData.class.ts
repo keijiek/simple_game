@@ -3,9 +3,9 @@ import { Hero } from "./Hero.class";
 import { Messages } from "./Messages.class";
 
 export class AllData {
-  hero: Hero;
-  dateTime: GameDateTime;
-  messages: Messages;
+  public dateTime: GameDateTime;
+  public hero: Hero;
+  public messages: Messages;
 
   constructor() {
     this.hero = new Hero();

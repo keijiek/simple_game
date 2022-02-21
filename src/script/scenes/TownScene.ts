@@ -1,6 +1,6 @@
-import { AllData }      from "../../data/AllData.class";
-import { GameDateTime } from "../../data/GameDateTime.class";
-import { Hero }         from "../../data/Hero.class";
+import { AllData }      from "../data/AllData.class";
+import { GameDateTime } from "../data/GameDateTime.class";
+import { Hero }         from "../data/Hero.class";
 
 
 export class TownScene {

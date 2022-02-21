@@ -1,11 +1,11 @@
-export class BoxBase {
+export abstract class BoxBase {
   private _div:HTMLDivElement;
 
-  constructor(classValue:string) {
+  protected constructor(classValue:string) {
     this._div = this.subDiv(classValue);
   }
 
-  get div():HTMLDivElement {
+  public get div():HTMLDivElement {
     return this._div;
   }
 
@@ -16,4 +16,6 @@ export class BoxBase {
     }
     return div;
   }
+
+  abstract update():void;
 }
