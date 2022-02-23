@@ -10,13 +10,14 @@ export class Game {
     this._allData = new AllData();
     this._outputManager = new OutputManager(this._allData);
     parentalElement.appendChild(this._outputManager.div);
+
+    this.mainLoop();
+    console.log('game終了');
   }
 
-  private createGameFrame():HTMLDivElement {
-    const gameFrame = document.createElement('div');
-    gameFrame.setAttribute('class', 'game_frame');
-    return gameFrame;
+  private mainLoop():void {
+    this._outputManager.update();
+    
+    
   }
-
-
 }

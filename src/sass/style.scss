@@ -26,9 +26,12 @@ body {
   margin: 0.6rem;
 }
 
+// 総合コンテナ
 .comprehensive_container {
   @include colorset_game();
   display: flex;
+  flex-shrink: 3;
+  flex-grow: 3;
   flex-flow: column;
   justify-content: baseline;
   margin: auto;
@@ -38,64 +41,98 @@ body {
   height: 480px;
 }
 
+// 上中下コンテナ
 @mixin sub_container_common {
   display: flex;
-  
+  justify-content: space-between;
+  align-items: stretch;
 }
 
 .upper_container {
-  display: flex;
+  @include sub_container_common();
   margin: auto;
-  height: 6%;
+  height: 7%;
 }
 .middle_container {
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  height: 69%;
-  // height: 280px;
-  // width: 100%;
+  @include sub_container_common();
+  height: 68%;
 }
 .lower_container {
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
+  @include sub_container_common();
   height: 25%;
-  // height: 140px;
-  // width: 100%;
+}
+
+// 上コンテナ内のボックス
+@mixin all_box_common {
+  border: solid 2px #ccc;
+  border-radius: 0.2rem;
+  margin: 0.1rem;
+  padding: 0.4rem;
 }
 
 .date_info_box {
+  @include all_box_common();
   padding: 0.2rem;
   width: 100%;
 }
 
+// 中央コンテナのボックス
 @mixin middle_box_common {
-  // border: solid 1px #ccc;
-  margin: auto;
-  padding: 0.4rem;
 }
 
 .hero_info_box {
+  @include all_box_common();
   @include middle_box_common();
   width: 25%;
+  display:block;
+  justify-content: start;
+  align-items: flex-start;
+  // vertical-align: text-top;
 }
 
 .image_box {
+  @include all_box_common();
   @include middle_box_common();
-  width: 45%;
+  width: 50%;
 }
 
 .sub_info_box {
+  @include all_box_common();
   @include middle_box_common();
   width: 25%;
 }
 
+// 下段コンテナ内のボックス
 .message_box {
-  border: solid 1px #ccc;
+  @include all_box_common();
   overflow-y: scroll;
   overflow-wrap: break-word;
   width: 100%;
-  padding: 0.4rem;
   font-size: normal;
+}
+
+.hero_data {
+  // vertical-align: top;
+}
+
+// ラベルと値のペア
+.label_and_value {
+  @include sub_container_common();
+  width: 100%;
+  .label_of_lav{
+    font-weight: 600;
+  }
+}
+
+.button {
+  width: 100%;
+  height: 2rem;
+  background-color: #333;
+  color: #ccc;
+  border: solid 2px #ccc;
+  &:hover {
+    background-color: #999;
+    color: #000;
+    border: solid 2px #fff;
+  }
 }

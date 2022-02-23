@@ -1,4 +1,5 @@
 import { AllData } from "../data/AllData.class";
+import { LANGUAGES } from "../data/enums";
 import { BoxBase } from "./BoxBase.class";
 import { DateInfoBox } from "./DateInfoBox.class";
 import { HeroInfoBox } from "./HeroInfoBox.class";
@@ -12,16 +13,19 @@ export class OutputManager extends BoxBase {
   private _messageBox: MessageBox;
   private _imageBox: ImageBox;
   private _subInfoBox: SubInfoBox;
+  private _langID:LANGUAGES;
 
-  constructor(allData:AllData) {
+  constructor(allData:AllData, langID:LANGUAGES=LANGUAGES.JA) {
     super('comprehensive_container');
-    this._dateInfoBox = new DateInfoBox(allData, 'date_info_box');
-    this._heroInfoBox = new HeroInfoBox(allData, 'hero_info_box');
-    this._imageBox    = new ImageBox   (allData, 'image_box');
-    this._subInfoBox  = new SubInfoBox (allData, 'sub_info_box');
-    this._messageBox  = new MessageBox (allData, 'message_box');
-    this.fullAppend();
-    this.update();
+    this._langID = langID;
+    this._dateInfoBox = new DateInfoBox(allData, 'date_info_box', this._langID);
+    this._heroInfoBox = new HeroInfoBox(allData, 'hero_info_box', this._langID);
+    this._imageBox    = new ImageBox   (allData, 'image_box', this._langID);
+    this._subInfoBox  = new SubInfoBox (allData, 'sub_info_box', this._langID);
+    this._messageBox  = new MessageBox (allData, 'message_box', this._langID);
+    this.div.appendChild(this.makeContainer('upper_container',  [this._dateInfoBox.div]));
+    this.div.appendChild(this.makeContainer('middle_container', [this._heroInfoBox.div, this._imageBox.div, this._subInfoBox.div]));
+    this.div.appendChild(this.makeContainer('lower_container',  [this._messageBox.div]));
   }
 
   update():void {
@@ -32,26 +36,7 @@ export class OutputManager extends BoxBase {
     this._messageBox.update();
   }
 
-  private fullAppend():HTMLDivElement {
-    this.div.appendChild(this.upperContainer());
-    this.div.appendChild(this.middleContainer());
-    this.div.appendChild(this.lowerContainer());
-    return this.div;
-  }
-
-  private upperContainer():HTMLDivElement {
-    return this.container('upper_container', [this._dateInfoBox.div]);
-  }
-
-  private middleContainer():HTMLDivElement {
-    return this.container('middle_container', [this._heroInfoBox.div, this._imageBox.div, this._subInfoBox.div]);
-  }
-
-  private lowerContainer():HTMLDivElement {
-    return this.container('lower_container', [this._messageBox.div]);
-  }
-
-  private container(classValue:string, childlen:HTMLDivElement[]):HTMLDivElement {
+  private makeContainer(classValue:string, childlen:HTMLDivElement[]):HTMLDivElement {
     const container = this.subDiv(classValue);
     childlen.forEach( child =>{
       container.appendChild(child);

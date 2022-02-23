@@ -1,32 +1,32 @@
-import { NameDataPair } from "./Interfaces";
+import { labelValueSet } from "../htmlParts/parts/labelValueSet.class";
+import { interfaceLabelValue, pairStrNum, pairStrStr } from "./Interfaces";
 
 export class Hero {
-  private _name: string = 'あなた';
-  // private _age:nameDataPair = {dataName:'年齢', dataValue:10};
-  private _age: number = 0;
-  private _combat: number = 0;
-  private _money: number = 0;
+  private _name:   pairStrStr = {label:['名前', 'Name'], value:'あなた'};
+  private _age:    pairStrNum = {label:['年齢', 'Age'], value:0};
+  private _money:  pairStrNum = {label:['金', 'Gold'], value:0};
+  private _combat: pairStrNum = {label:['戦闘', 'Combat'], value:0};
 
   constructor() {
     this.autoMakeSelf();
   }
-
-  get name():string {
+  
+  get namePair(): pairStrStr {
     return this._name;
   }
-  get age():number {
+  get agePair(): pairStrNum {
     return this._age;
   }
-  get money():number {
+  get moneyPair(): pairStrNum {
     return this._money;
   }
-  get combat():number {
+  get combatPair(): pairStrNum {
     return this._combat;
   }
-  
+
   private autoMakeSelf():void {
-    this._age = Math.floor(Math.random()*10) + 10;
-    this._combat = 1;
-    this._money = Math.floor(Math.random()*10) + 1;
+    this._age.value = Math.floor(Math.random()*10) + 10;
+    this._combat.value = 1;
+    this._money.value = Math.floor(Math.random()*10) + 1;
   }
 }
